@@ -1,6 +1,31 @@
-import React from 'react'
+import React, { useReducer } from 'react';
 
-export const Login = () => {
+interface AuthState {
+    validando: boolean;
+    token: string | null;
+    userName: string;
+    nombre: string ;
+}
+
+
+const initialState: AuthState = {
+    validando: true,
+    token: null,
+    userName: '',
+    nombre: ''
+};
+
+type AuthAction = { type: 'logout'}
+
+const authReducer = ( state:AuthState, action: AuthAction ):AuthState => {
+
+}
+
+export const Login = () => { 
+
+    const [state, dispatch] = useReducer(authReducer, initialState);
+
+
   return (
     <>
         <h3>Login</h3>
@@ -17,7 +42,7 @@ export const Login = () => {
             Autenticado
         </div>
 
-        
+
 
         <button className='btn btn-primary'>
             Login
@@ -26,6 +51,6 @@ export const Login = () => {
         <button className='btn btn-danger'>
             Logout
         </button>
-    </>
+    </> 
   )
 }
