@@ -1,6 +1,4 @@
-
-
-import { ContadorConHook } from "./components/ContadorConHook";
+import { Login } from "./components/Login";
 
 
 
@@ -11,7 +9,7 @@ import { ContadorConHook } from "./components/ContadorConHook";
       <h1>Introduccion a Typescript</h1>
      <hr />
 
-      <ContadorConHook />
+      <Login />
     </div>
   )
 }
