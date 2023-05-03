@@ -1,6 +1,8 @@
-// import { TiposBasicos } from "./typescript/TiposBasicos";
 
-import { ObjetosLiterales } from "./typescript/ObjetosLiterales";
+
+import { ContadorConHook } from "./components/ContadorConHook";
+
+
 
 
  const App = () => {
@@ -8,8 +10,8 @@ import { ObjetosLiterales } from "./typescript/ObjetosLiterales";
     <div className='mt-2'>
       <h1>Introduccion a Typescript</h1>
      <hr />
-      {/* <TiposBasicos />  */}
-      <ObjetosLiterales />
+
+      <ContadorConHook />
     </div>
   )
 }
