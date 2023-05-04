@@ -1,4 +1,5 @@
-import { Login } from "./components/Login";
+import { Usuarios } from "./components/Usuarios";
+
 
 
 
@@ -7,9 +8,9 @@ import { Login } from "./components/Login";
   return (
     <div className='mt-2'>
       <h1>Introduccion a Typescript</h1>
-     <hr />
+      <hr />
 
-      <Login />
+      <Usuarios /> 
     </div>
   )
 }
