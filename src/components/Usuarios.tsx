@@ -6,7 +6,7 @@ import {  Usuario } from "../interfaces/reqRes";
 
 export const Usuarios = () => {
 
-    const { usuarios , cargarUsuarios } = useUsuarios()   //saco usuarios y cargarUsuarios de useUsuarios
+    const { usuarios , paginaAnterior, paginaSiguiente } = useUsuarios()   //saco usuarios y cargarUsuarios de useUsuarios
 
 
     const renderItem = ({id, avatar, first_name, email, last_name}: Usuario) => { //Desestructuro todo esto de 'usuario'
@@ -41,10 +41,10 @@ export const Usuarios = () => {
         </table>
 
 
-        <button className="btn btn-primary" onClick={cargarUsuarios} >
+        <button className="btn btn-primary" onClick={paginaAnterior} >
             Anteriores
         </button>
-        <button className="btn btn-primary" onClick={cargarUsuarios} >
+        <button className="btn btn-primary" onClick={paginaSiguiente} >
             Siguientes
         </button>
     </>
