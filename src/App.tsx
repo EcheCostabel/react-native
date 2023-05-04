@@ -1,3 +1,4 @@
+import { Formularios } from "./components/Formularios";
 import { Usuarios } from "./components/Usuarios";
 
 
@@ -10,7 +11,9 @@ import { Usuarios } from "./components/Usuarios";
       <h1>Introduccion a Typescript</h1>
       <hr />
 
-      <Usuarios /> 
+      <Formularios />
+      {/* <Usuarios />  */}
+
     </div>
   )
 }
