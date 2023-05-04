@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-export const reqRes = axios.create({
+export const reqResApi = axios.create({
 
     baseURL: 'https://reqres.in/api'
 

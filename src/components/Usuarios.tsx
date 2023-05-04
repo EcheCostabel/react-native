@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import axios from "axios";
+import { reqResApi } from "../api/reqRes";
 
 
 
@@ -7,7 +8,11 @@ export const Usuarios = () => {
 
 
     useEffect(() => {
-        axios('https://reqres.in/api/users')
+        reqResApi.get('/users')
+        .then( resp => {
+            console.log(resp.data.data)
+        })
+        .catch( err => console.log(err))
     }, [])
 
 
