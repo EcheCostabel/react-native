@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { reqResApi } from "../api/reqRes";
 import { ReqResListado, Usuario } from "../interfaces/reqRes";
 
@@ -7,15 +7,27 @@ import { ReqResListado, Usuario } from "../interfaces/reqRes";
 export const Usuarios = () => {
 
     const [ usuarios, setUsuarios ] = useState<Usuario[]>([])
+    
+     const paginaRef = useRef(0);
 
 
     useEffect(() => {
-        reqResApi.get<ReqResListado>('/users')
-        .then( resp => {
-            setUsuarios(resp.data.data)
-        })
-        .catch( err => console.log(err))
+        cargarUsuarios();
     }, [])
+
+    const cargarUsuarios = async() => {
+        const resp = await reqResApi.get<ReqResListado>('/users', {
+            params: {
+                page: paginaRef.current
+            }
+        })
+        if(resp.data.data.length > 0 ) {
+            setUsuarios(resp.data.data)
+            paginaRef.current ++  // esto es para hacer la paginacion
+        } else {
+            alert('No hay mas registros')
+        }
+    }
 
 
     const renderItem = ({id, avatar, first_name, email, last_name}: Usuario) => { //Desestructuro todo esto de 'usuario'
@@ -48,7 +60,7 @@ export const Usuarios = () => {
                }
             </tbody>
         </table>
-        <button className="btn btn-primary">
+        <button className="btn btn-primary" onClick={cargarUsuarios} >
             Siguientes
         </button>
     </>
